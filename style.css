@@ -1,0 +1,171 @@
+body {
+
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto;
+
+    margin: 0;
+    background: #0b0f19;
+    color: #e2e8f0;
+
+}
+
+.topo {
+
+    text-align: center;
+    padding: 40px 20px;
+
+}
+
+.topo h1 {
+
+    margin: 0;
+    font-size: 28px;
+
+}
+
+.topo p {
+
+    opacity: .6;
+
+}
+
+.container {
+
+    padding: 20px;
+    max-width: 700px;
+    margin: auto;
+
+}
+
+.card {
+
+    background: #121826;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+
+    border: 1px solid #1f2937;
+
+}
+
+label {
+
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+
+}
+
+input,
+select,
+textarea {
+
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #1f2937;
+    background: #0b0f19;
+    color: white;
+    font-size: 16px;
+
+}
+
+textarea {
+
+    min-height: 120px;
+
+}
+
+button {
+
+    width: 100%;
+    padding: 18px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    background: #6366f1;
+    color: white;
+    cursor: pointer;
+
+}
+
+button:hover {
+
+    background: #4f46e5;
+
+}
+
+/* chips */
+
+.chips {
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+}
+
+.chip {
+
+    padding: 8px 12px;
+    border-radius: 20px;
+    border: 1px solid #374151;
+    cursor: pointer;
+    font-size: 14px;
+
+}
+
+.chip.selected {
+
+    background: #6366f1;
+    border: none;
+
+}
+
+/* loading */
+
+#loading {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: #0b0f19;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 999;
+
+}
+
+.loader {
+
+    width: 40px;
+    height: 40px;
+
+    border: 4px solid #1f2937;
+    border-top: 4px solid #6366f1;
+
+    border-radius: 50%;
+
+    animation: spin 1s linear infinite;
+
+    margin-bottom: 15px;
+
+}
+
+@keyframes spin {
+
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+
+}
