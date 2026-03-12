@@ -100,6 +100,8 @@ function mostrarConfirmacao() {
 
 document.getElementById("enviar").onclick = async () => {
 
+    if (!validarFormulario()) return
+
     const botao = document.getElementById("enviar")
 
     botao.disabled = true
@@ -108,27 +110,19 @@ document.getElementById("enviar").onclick = async () => {
     const dados = {
 
         nome: document.getElementById("nome").value,
-
         area_profissional: document.getElementById("area_profissional").value,
-
         estilo_vida: document.getElementById("estilo_vida").value,
-
         moradia: document.getElementById("moradia").value,
-
         formacao: document.getElementById("formacao").value,
-
         familia: document.getElementById("familia").value,
 
         hobbies: pegarChips("hobbies"),
-
         valores: pegarChips("valores"),
 
         impacto_coletivo: document.getElementById("impacto_coletivo").value,
-
         influencias: pegarChips("influencias"),
 
-        palavras_futuro: document.getElementById("palavras_futuro").value,
-
+        palavras_futuro: palavras.join(", "),
         narrativa: document.getElementById("narrativa").value
 
     }
@@ -201,5 +195,112 @@ document.getElementById("baixar_cartao").onclick = async () => {
     link.href = canvas.toDataURL("image/png")
 
     link.click()
+
+}
+
+const palavras = []
+const inputPalavra = document.getElementById("palavras_input")
+const containerPalavras = document.getElementById("palavras_container")
+
+inputPalavra.addEventListener("keydown", function (e) {
+
+    if (e.key === "Enter") {
+
+        e.preventDefault()
+
+        const texto = inputPalavra.value.trim()
+
+        if (!texto) return
+
+        if (palavras.length >= 3) {
+
+            alert("Escolha até 3 palavras")
+            return
+
+        }
+
+        palavras.push(texto)
+
+        criarChipPalavra(texto)
+
+        inputPalavra.value = ""
+
+    }
+
+})
+
+function criarChipPalavra(texto) {
+
+    const chip = document.createElement("div")
+
+    chip.classList.add("chip", "selected")
+
+    chip.textContent = texto
+
+    chip.onclick = () => {
+
+        chip.remove()
+
+        const index = palavras.indexOf(texto)
+
+        if (index > -1) palavras.splice(index, 1)
+
+    }
+
+    containerPalavras.insertBefore(chip, inputPalavra)
+
+}
+
+function validarFormulario() {
+
+    const erros = []
+
+    if (!document.getElementById("nome").value.trim())
+        erros.push("Digite seu nome")
+
+    if (document.getElementById("area_profissional").selectedIndex == 0)
+        erros.push("Escolha uma área profissional")
+
+    if (document.getElementById("estilo_vida").selectedIndex == 0)
+        erros.push("Escolha um estilo de vida")
+
+    if (document.getElementById("moradia").selectedIndex == 0)
+        erros.push("Escolha um tipo de moradia")
+
+    if (document.getElementById("formacao").selectedIndex == 0)
+        erros.push("Escolha uma formação")
+
+    if (document.getElementById("familia").selectedIndex == 0)
+        erros.push("Escolha uma estrutura familiar")
+
+    if (document.querySelectorAll("#hobbies .selected").length == 0)
+        erros.push("Escolha pelo menos 1 hobby")
+
+    if (document.querySelectorAll("#valores .selected").length == 0)
+        erros.push("Escolha pelo menos 1 valor")
+
+    if (palavras.length < 3)
+        erros.push("Adicione 3 palavras para seu futuro")
+
+    const box = document.getElementById("mensagem_erro")
+
+    if (erros.length > 0) {
+
+        box.style.display = "block"
+
+        box.innerHTML =
+            "<strong>⚠️ Falta completar:</strong><ul><li>" +
+            erros.join("</li><li>") +
+            "</li></ul>"
+
+        window.scrollTo({ top: box.offsetTop - 40, behavior: "smooth" })
+
+        return false
+
+    }
+
+    box.style.display = "none"
+
+    return true
 
 }

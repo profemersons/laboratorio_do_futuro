@@ -368,3 +368,117 @@ button:hover {
     margin: 12px 0 6px 0;
 
 }
+
+#palavras_container {
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+}
+
+#palavras_container input {
+
+    border: none;
+    outline: none;
+    background: transparent;
+    color: inherit;
+
+}
+
+.erro {
+
+    display: none;
+
+    background: #2a1b1b;
+    border: 1px solid #ff6b6b;
+
+    color: #ffb3b3;
+
+    padding: 14px;
+
+    border-radius: 12px;
+
+    margin-bottom: 16px;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+}
+
+.erro strong {
+
+    color: #ff6b6b;
+
+}
+
+.erro ul {
+
+    margin: 8px 0 0 16px;
+
+    padding: 0;
+
+}
+
+.erro li {
+
+    margin-bottom: 4px;
+
+}
+
+.card {
+
+    transition: transform .15s ease, box-shadow .15s ease;
+
+}
+
+.card:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+
+}
+
+.chip {
+
+    transition: all .15s ease;
+
+}
+
+.chip:hover {
+
+    transform: scale(1.05);
+
+}
+
+.chip.selected {
+
+    transform: scale(1.05);
+
+}
+
+button {
+
+    transition: all .15s ease;
+
+}
+
+button:hover {
+
+    transform: translateY(-1px);
+
+}
+
+button:active {
+
+    transform: scale(0.97);
+
+}
+
+body {
+
+    -webkit-font-smoothing: antialiased;
+
+}
