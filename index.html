@@ -26,72 +26,148 @@
 
     </header>
 
-    <main class="container">
+    <main>
 
-        <section class="card">
-            <label>👤 Seu nome</label>
-            <input id="nome" placeholder="Digite seu nome">
-        </section>
+        <div id="tela_formulario">
 
-        <section class="card">
-            <label>💼 Área profissional</label>
-            <select id="area_profissional"></select>
-        </section>
+            <div class="container">
 
-        <section class="card">
-            <label>🌱 Estilo de vida</label>
-            <select id="estilo_vida"></select>
-        </section>
+                <section class="card">
+                    <label>👤 Seu nome</label>
+                    <input id="nome" placeholder="Digite seu nome">
+                </section>
 
-        <section class="card">
-            <label>🏡 Moradia</label>
-            <select id="moradia"></select>
-        </section>
+                <section class="card">
+                    <label>💼 Área profissional</label>
+                    <p class="hint">Escolha uma área que você imagina atuar no futuro.</p>
+                    <select id="area_profissional"></select>
+                </section>
 
-        <section class="card">
-            <label>🎓 Formação</label>
-            <select id="formacao"></select>
-        </section>
+                <section class="card">
+                    <label>🌱 Estilo de vida</label>
+                    <p class="hint">Como você imagina sua rotina no futuro.</p>
+                    <select id="estilo_vida"></select>
+                </section>
 
-        <section class="card">
-            <label>❤️ Estrutura familiar</label>
-            <select id="familia"></select>
-        </section>
+                <section class="card">
+                    <label>🏡 Moradia</label>
+                    <select id="moradia"></select>
+                </section>
 
-        <section class="card">
-            <label>🎯 Hobbies (até 3)</label>
-            <div id="hobbies" class="chips"></div>
-        </section>
+                <section class="card">
+                    <label>🎓 Formação</label>
+                    <select id="formacao"></select>
+                </section>
 
-        <section class="card">
-            <label>⭐ Valores pessoais (até 3)</label>
-            <div id="valores" class="chips"></div>
-        </section>
+                <section class="card">
+                    <label>❤️ Estrutura familiar</label>
+                    <select id="familia"></select>
+                </section>
 
-        <section class="card">
-            <label>🌍 Impacto coletivo</label>
-            <select id="impacto_coletivo"></select>
-        </section>
+                <section class="card">
+                    <label>🎯 Hobbies <span id="count_hobbies">(0/3)</span></label>
+                    <div id="hobbies" class="chips"></div>
+                </section>
 
-        <section class="card">
-            <label>🧠 Quem influencia suas ideias de futuro? (até 3)</label>
-            <div id="influencias" class="chips"></div>
-        </section>
+                <section class="card">
+                    <label>⭐ Valores pessoais <span id="count_valores">(0/3)</span></label>
+                    <div id="valores" class="chips"></div>
+                </section>
 
-        <section class="card">
-            <label>🔑 3 palavras que definem seu futuro</label>
-            <input id="palavras_futuro">
-        </section>
+                <section class="card">
+                    <label>🌍 Em que área você gostaria de causar impacto positivo?</label>
+                    <select id="impacto_coletivo"></select>
+                </section>
 
-        <section class="card">
-            <label>📖 Como seria um dia da sua vida nesse futuro?</label>
-            <textarea id="narrativa"></textarea>
-        </section>
+                <section class="card">
+                    <label>🧠 Quem influencia suas ideias de futuro? <span id="count_influencias">(0/3)</span></label>
+                    <div id="influencias" class="chips"></div>
+                </section>
 
-        <button id="enviar">Enviar meu futuro 🚀</button>
+                <section class="card">
+                    <label>🔑 3 palavras que definem seu futuro</label>
+                    <input id="palavras_futuro">
+                </section>
+
+                <section class="card">
+                    <label>📖 Como seria um dia da sua vida nesse futuro?</label>
+                    <textarea id="narrativa"></textarea>
+                </section>
+
+                <button id="enviar">Enviar meu futuro 🚀</button>
+
+            </div>
+
+        </div>
+
+
+
+        <div id="tela_cartao">
+
+            <div class="cartao-futuro">
+                <div class="cabecalho-cartao">
+
+                    <div class="logo-projeto">🚀 Laboratório do Futuro</div>
+
+                    <div class="sub-projeto">Projeto de Vida</div>
+
+                </div>
+
+                <h2 id="c_nome"></h2>
+
+                <p class="sub">Uma possível versão do seu futuro</p>
+
+                <div class="cartao-grid">
+
+                    <div class="item">
+                        <span>💼 Área profissional</span>
+                        <strong id="c_area"></strong>
+                    </div>
+
+                    <div class="item">
+                        <span>🌱 Estilo de vida</span>
+                        <strong id="c_estilo"></strong>
+                    </div>
+
+                    <div class="item">
+                        <span>🏡 Moradia</span>
+                        <strong id="c_moradia"></strong>
+                    </div>
+
+                    <div class="item">
+                        <span>⭐ Valores</span>
+                        <strong id="c_valores"></strong>
+                    </div>
+
+                    <div class="item">
+                        <span>🌍 Impacto</span>
+                        <strong id="c_impacto"></strong>
+                    </div>
+
+                </div>
+
+                <div class="narrativa">
+
+                    <h3>📖 Um dia nesse futuro</h3>
+
+                    <p id="c_narrativa"></p>
+                    <div class="acoes-cartao">
+                    </div>
+                    <button id="baixar_cartao">
+                        📸 Baixar meu cartão do futuro
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
 
     </main>
-
+    <div id="confirmacao">
+        🚀 Futuro registrado com sucesso
+    </div>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <script src="script.js"></script>
 
 </body>

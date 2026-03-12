@@ -1,59 +1,62 @@
 body {
-
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto;
-
     margin: 0;
     background: #0b0f19;
     color: #e2e8f0;
-
 }
 
+/* HEADER */
+
 .topo {
-
     text-align: center;
-    padding: 40px 20px;
-
+    padding: 36px 20px 20px;
 }
 
 .topo h1 {
-
     margin: 0;
     font-size: 28px;
-
+    font-weight: 700;
 }
 
 .topo p {
-
+    margin-top: 6px;
     opacity: .6;
-
+    font-size: 15px;
 }
+
+/* CONTAINER */
 
 .container {
-
     padding: 20px;
-    max-width: 700px;
+    max-width: 720px;
     margin: auto;
-
 }
 
-.card {
+/* CARD */
 
+.card {
     background: #121826;
     padding: 20px;
     border-radius: 12px;
     margin-bottom: 16px;
-
     border: 1px solid #1f2937;
-
+    transition: .2s;
 }
 
-label {
+.card:hover {
+    border-color: #374151;
+}
 
+/* LABEL */
+
+label {
     display: block;
     margin-bottom: 10px;
     font-weight: 600;
-
+    font-size: 14px;
 }
+
+/* INPUTS */
 
 input,
 select,
@@ -65,63 +68,79 @@ textarea {
     border: 1px solid #1f2937;
     background: #0b0f19;
     color: white;
-    font-size: 16px;
+    font-size: 15px;
+
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+
+    outline: none;
+    border-color: #6366f1;
 
 }
 
 textarea {
-
     min-height: 120px;
-
+    resize: vertical;
 }
+
+/* BOTÃO */
 
 button {
 
     width: 100%;
-    padding: 18px;
+    padding: 16px;
     border: none;
     border-radius: 10px;
-    font-size: 18px;
+    font-size: 17px;
+    font-weight: 600;
     background: #6366f1;
     color: white;
     cursor: pointer;
+    margin-top: 10px;
+    transition: .2s;
 
 }
 
 button:hover {
-
     background: #4f46e5;
-
 }
 
-/* chips */
+/* CHIPS */
 
 .chips {
-
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-
 }
 
 .chip {
 
-    padding: 8px 12px;
-    border-radius: 20px;
+    padding: 8px 14px;
+    border-radius: 999px;
     border: 1px solid #374151;
     cursor: pointer;
     font-size: 14px;
+    background: #0b0f19;
+    transition: .15s;
 
+}
+
+.chip:hover {
+    border-color: #6366f1;
 }
 
 .chip.selected {
 
     background: #6366f1;
-    border: none;
+    border-color: #6366f1;
+    color: white;
 
 }
 
-/* loading */
+/* LOADING */
 
 #loading {
 
@@ -167,5 +186,185 @@ button:hover {
     100% {
         transform: rotate(360deg);
     }
+
+}
+
+/* MOBILE */
+
+@media (max-width:600px) {
+
+    .topo h1 {
+        font-size: 24px;
+    }
+
+    .container {
+        padding: 16px;
+    }
+
+}
+
+.hint {
+
+    font-size: 13px;
+    opacity: .6;
+    margin-top: -4px;
+    margin-bottom: 12px;
+
+}
+
+#confirmacao {
+
+    display: none;
+
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background: #16a34a;
+    color: white;
+
+    padding: 16px 24px;
+    border-radius: 10px;
+
+    font-weight: 600;
+
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+
+    z-index: 1000;
+
+}
+
+.chips {
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+}
+
+#tela_cartao {
+
+    display: none;
+
+    min-height: 100vh;
+
+    padding: 20px;
+
+}
+
+.cartao-futuro {
+
+    max-width: 520px;
+
+    margin: auto;
+
+    background: var(--card-bg);
+
+    border-radius: 16px;
+
+    padding: 24px;
+
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+
+}
+
+.cartao-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 12px;
+
+    margin: 20px 0;
+
+}
+
+.item {
+
+    background: rgba(255, 255, 255, 0.08);
+
+    padding: 14px;
+
+    border-radius: 10px;
+
+}
+
+.narrativa {
+
+    margin-top: 20px;
+
+    padding: 16px;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    border-radius: 10px;
+
+}
+
+.acoes-cartao {
+
+    margin-top: 25px;
+
+    text-align: center;
+
+}
+
+#baixar_cartao {
+
+    padding: 12px 18px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+}
+
+.cabecalho-cartao {
+
+    text-align: center;
+
+    margin-bottom: 20px;
+
+    padding-bottom: 15px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+
+}
+
+.logo-projeto {
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+}
+
+.sub-projeto {
+
+    font-size: 13px;
+
+    opacity: .6;
+
+    margin-top: 2px;
+
+}
+
+.cartao-futuro h2 {
+
+    font-size: 26px;
+
+    text-align: center;
+
+    margin: 12px 0 6px 0;
 
 }

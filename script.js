@@ -17,12 +17,20 @@ async function carregarOpcoes() {
     criarChips("influencias", dados.influencias, 3)
 
     document.getElementById("loading").style.display = "none"
-
 }
 
 function preencherSelect(id, lista) {
 
     const el = document.getElementById(id)
+
+    const placeholder = document.createElement("option")
+
+    placeholder.value = ""
+    placeholder.textContent = "Selecione..."
+    placeholder.disabled = true
+    placeholder.selected = true
+
+    el.appendChild(placeholder)
 
     lista.forEach(item => {
 
@@ -46,7 +54,6 @@ function criarChips(id, lista, max) {
         const chip = document.createElement("div")
 
         chip.classList.add("chip")
-
         chip.textContent = item
 
         chip.onclick = () => {
@@ -68,7 +75,6 @@ function criarChips(id, lista, max) {
         container.appendChild(chip)
 
     })
-
 }
 
 function pegarChips(id) {
@@ -76,10 +82,28 @@ function pegarChips(id) {
     return [...document.querySelectorAll(`#${id} .selected`)]
         .map(el => el.textContent)
         .join(", ")
+}
+
+function mostrarConfirmacao() {
+
+    const box = document.getElementById("confirmacao")
+
+    if (!box) return
+
+    box.style.display = "block"
+
+    setTimeout(() => {
+        box.style.display = "none"
+    }, 4000)
 
 }
 
 document.getElementById("enviar").onclick = async () => {
+
+    const botao = document.getElementById("enviar")
+
+    botao.disabled = true
+    botao.innerText = "Enviando..."
 
     const dados = {
 
@@ -109,15 +133,73 @@ document.getElementById("enviar").onclick = async () => {
 
     }
 
-    await fetch(api, {
+    try {
 
-        method: "POST",
-        body: JSON.stringify(dados)
+        await fetch(api, {
+            method: "POST",
+            body: JSON.stringify(dados)
+        })
 
-    })
+        botao.innerText = "Enviado ✅"
 
-    alert("Futuro registrado 🚀")
+        mostrarConfirmacao()
+
+        gerarCartao(dados)
+
+    } catch (e) {
+
+        alert("Erro ao enviar. Tente novamente.")
+
+        botao.disabled = false
+        botao.innerText = "Enviar meu futuro 🚀"
+
+    }
+
+}
+
+function gerarCartao(d) {
+
+    document.getElementById("tela_formulario").style.display = "none"
+
+    document.querySelector(".topo").style.display = "none"
+
+    document.getElementById("tela_cartao").style.display = "block"
+
+    document.getElementById("c_nome").innerText = d.nome
+
+    document.getElementById("c_area").innerText = d.area_profissional
+
+    document.getElementById("c_estilo").innerText = d.estilo_vida
+
+    document.getElementById("c_moradia").innerText = d.moradia
+
+    document.getElementById("c_valores").innerText = d.valores
+
+    document.getElementById("c_impacto").innerText = d.impacto_coletivo
+
+    document.getElementById("c_narrativa").innerText = d.narrativa
 
 }
 
 carregarOpcoes()
+
+document.getElementById("baixar_cartao").onclick = async () => {
+
+    const cartao = document.querySelector(".cartao-futuro")
+
+    const canvas = await html2canvas(cartao, {
+
+        backgroundColor: null,
+        scale: 2
+
+    })
+
+    const link = document.createElement("a")
+
+    link.download = "meu_futuro.png"
+
+    link.href = canvas.toDataURL("image/png")
+
+    link.click()
+
+}
