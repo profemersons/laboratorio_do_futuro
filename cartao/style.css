@@ -1,0 +1,172 @@
+/* ========================= */
+/* BASE - estilo escuro coerente com site 1 */
+/* ========================= */
+body {
+    background: #0b0f19;
+    /* fundo escuro global */
+    color: #e2e8f0;
+    /* texto claro */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ========================= */
+/* HEADER */
+.topo {
+    text-align: center;
+    padding: 36px 20px 20px;
+}
+
+.topo h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.topo p {
+    margin-top: 6px;
+    opacity: 0.6;
+    font-size: 15px;
+}
+
+/* ========================= */
+/* CONTAINER & CARDS */
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.card {
+    background: #121826;
+    /* card escuro */
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid #1f2937;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+.card h2 {
+    font-size: 20px;
+    margin-bottom: 16px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+/* ========================= */
+/* COMBO BOX E BOTÃO */
+select,
+#aluno_select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #1f2937;
+    background: #0b0f19;
+    /* fundo escuro */
+    color: #ffffff;
+    /* texto branco */
+    font-size: 15px;
+    margin-bottom: 10px;
+    outline: none;
+}
+
+select:focus {
+    border-color: #6366f1;
+}
+
+button {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 600;
+    background: #6366f1;
+    color: #ffffff;
+    cursor: pointer;
+    margin-top: 5px;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #4f46e5;
+}
+
+/* ========================= */
+/* CARTÃO DO ALUNO */
+.cartao-futuro {
+    max-width: 1500px;
+    margin: 20px auto;
+    background: #121826;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cartao-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin: 16px 0;
+}
+
+.item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.narrativa {
+    margin-top: 20px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 10px;
+}
+
+.cabecalho-cartao {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.logo-projeto {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.sub-projeto {
+    font-size: 13px;
+    opacity: 0.6;
+    margin-top: 2px;
+}
+
+/* ========================= */
+/* RESPONSIVO */
+@media(max-width:600px) {
+    .topo h1 {
+        font-size: 24px;
+    }
+
+    .container {
+        padding: 16px;
+    }
+
+    .cartao-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .item {
+        font-size: 15px;
+    }
+}

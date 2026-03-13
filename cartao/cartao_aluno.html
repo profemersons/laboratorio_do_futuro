@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cartão do Futuro do Aluno</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topo">
+    <h1>🎓 Cartão do Futuro</h1>
+    <p>Selecione um aluno para exibir seu futuro</p>
+</header>
+
+<main class="container">
+
+    <section class="card">
+        <label for="aluno_select">👤 Selecione um aluno</label>
+        <select id="aluno_select">
+            <option value="">Selecione...</option>
+        </select>
+        <button id="exibir_aluno">Exibir futuro 🚀</button>
+    </section>
+
+    <section id="tela_cartao" class="card" style="display:none; max-width:700px; margin:auto;">
+        <div class="cartao-futuro">
+            <div class="cabecalho-cartao">
+                <div class="logo-projeto">🚀 Laboratório do Futuro</div>
+                <div class="sub-projeto">Projeto de Vida</div>
+            </div>
+
+            <h2 id="c_nome"></h2>
+            <p class="sub">Uma possível versão do seu futuro</p>
+
+            <div class="cartao-grid">
+                <div class="item"><span>💼 Área profissional</span><br><strong id="c_area"></strong></div>
+                <div class="item"><span>🌱 Estilo de vida</span><br><strong id="c_estilo"></strong></div>
+                <div class="item"><span>🏡 Moradia</span><br><strong id="c_moradia"></strong></div>
+                <div class="item"><span>🎓 Formação</span><br><strong id="c_formacao"></strong></div>
+                <div class="item"><span>❤️ Estrutura familiar</span><br><strong id="c_familia"></strong></div>
+                <div class="item"><span>🎯 Impacto coletivo</span><br><strong id="c_impacto"></strong></div>
+            </div>
+
+            <div class="cartao-grid">
+                <div class="item"><span>⭐ Valores</span><br><strong id="c_valores"></strong></div>
+                <div class="item"><span>🏃 Hobbies</span><br><strong id="c_hobbies"></strong></div>
+                <div class="item"><span>🧠 Influências</span><br><strong id="c_influencias"></strong></div>
+                <div class="item"><span>🔑 Palavras do futuro</span><br><strong id="c_palavras"></strong></div>
+            </div>
+
+            <div class="narrativa">
+                <h3>📖 Um dia nesse futuro</h3>
+                <p id="c_narrativa"></p>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<script src="cartao_aluno.js"></script>
+</body>
+</html>
