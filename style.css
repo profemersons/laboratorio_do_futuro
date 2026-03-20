@@ -482,3 +482,30 @@ body {
     -webkit-font-smoothing: antialiased;
 
 }
+
+#palavras_container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+#palavras_container button {
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid #374151;
+    background: #6366f1;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: .15s;
+}
+
+#palavras_container button:hover {
+    background: #4f46e5;
+    transform: scale(1.05);
+}
+
+#palavras_container button:active {
+    transform: scale(0.95);
+}

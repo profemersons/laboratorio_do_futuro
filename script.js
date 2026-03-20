@@ -203,31 +203,12 @@ const inputPalavra = document.getElementById("palavras_input")
 const containerPalavras = document.getElementById("palavras_container")
 
 inputPalavra.addEventListener("keydown", function (e) {
-
     if (e.key === "Enter") {
-
         e.preventDefault()
-
-        const texto = inputPalavra.value.trim()
-
-        if (!texto) return
-
-        if (palavras.length >= 3) {
-
-            alert("Escolha até 3 palavras")
-            return
-
-        }
-
-        palavras.push(texto)
-
-        criarChipPalavra(texto)
-
-        inputPalavra.value = ""
-
+        adicionarPalavra()
     }
-
 })
+document.getElementById("btn_add_palavra").onclick = adicionarPalavra
 
 function criarChipPalavra(texto) {
 
@@ -302,5 +283,24 @@ function validarFormulario() {
     box.style.display = "none"
 
     return true
+
+}
+
+function adicionarPalavra() {
+
+    const texto = inputPalavra.value.trim()
+
+    if (!texto) return
+
+    if (palavras.length >= 3) {
+        alert("Escolha até 3 palavras")
+        return
+    }
+
+    palavras.push(texto)
+
+    criarChipPalavra(texto)
+
+    inputPalavra.value = ""
 
 }
